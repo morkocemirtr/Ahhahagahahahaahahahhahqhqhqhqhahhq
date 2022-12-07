@@ -1,0 +1,138 @@
+--distance
+local Brokev2 = false
+
+
+local ScreenGui = Instance.new("ScreenGui") ----- enjoy it!
+local main = Instance.new("Frame")
+local Broke = Instance.new("TextButton")
+local TugOfWar = Instance.new("TextButton")
+local Close = Instance.new("TextButton")
+local instant = Instance.new("TextButton")
+local page = Instance.new("TextButton") 
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+main.Position = UDim2.new(0.444747597, 0, 0.350253791, 0)
+main.Size = UDim2.new(0, 136, 0, 165)
+main.Visible = true
+main.Draggable = true
+
+Broke.Name = "Broke"
+Broke.Parent = main
+Broke.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+Broke.Position = UDim2.new(0.183235289, 0, 0.25454545, 0)
+Broke.Size = UDim2.new(0, 97, 0, 17)
+Broke.Font = Enum.Font.SourceSans
+Broke.Text = "anti broke (off)"
+Broke.TextColor3 = Color3.fromRGB(0, 0, 0)
+Broke.TextSize = 14.000
+Broke.MouseButton1Down:connect(function()
+ if Brokev2 == true then 
+		Brokev2 = false 
+	else
+		Brokev2 = true
+		end
+	if Brokev2 == true then
+	    Broke.Text = "anti broke (on)"
+	    Broke.BackgroundColor3 = Color3.fromRGB(0, 128, 0)
+	end
+	if Brokev2 == false then 
+	    Broke.Text = "anti broke (off)"
+	    Broke.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+	end
+	
+	if Brokev2 == true then
+        box = Instance.new('Part',workspace)
+box.Name = "WeLoveKids"
+box.Anchored = true
+box.CanCollide = true
+box.Size = Vector3.new(35,0,333)
+box.Position = Vector3.new(-500, 75.506008911133, -337)
+game.Workspace.WeLoveKids.Transparency = 0.2 
+        end
+	if Brokev2 == false then
+    game.Workspace.WeLoveKids:Destroy() 
+    game.Workspace.WeLoveKids:Destroy()
+    game.Workspace.WeLoveKids:Destroy() 
+    game.Workspace.WeLoveKids:Destroy() 
+	end
+end)
+
+instant.Name = "instant"
+instant.Parent = main
+instant.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+instant.Position = UDim2.new(0.161764711, 0, 0.654545468, 0)
+instant.Size = UDim2.new(0, 99, 0, 19)
+instant.Font = Enum.Font.SourceSans
+instant.Text = "win (glass)"
+instant.TextColor3 = Color3.fromRGB(0, 0, 0)
+instant.TextSize = 14.000
+instant.MouseButton1Down:connect(function()
+local plr = game:service"Players".LocalPlayer;
+local tween_s = game:service"TweenService";
+local info = TweenInfo.new(3,Enum.EasingStyle.Quad);
+function tp(...)
+   local tic_k = tick(5);
+   local params = {...};
+   local cframe = CFrame.new(params[1],params[2],params[3]);
+   local tween,err = pcall(function()
+       local tween = tween_s:Create(plr.Character["HumanoidRootPart"],info,{CFrame=cframe});
+       tween:Play();
+   end)
+   if not tween then return err end
+end
+tp(-500.35690307617, 78.206008911133, -470.29962158203)
+end)
+
+TugOfWar.Name = "TogOfWar"
+TugOfWar.Parent = main
+TugOfWar.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+TugOfWar.Position = UDim2.new(0.161764711, 0, 0.454545468, 0)
+TugOfWar.Size = UDim2.new(0, 99, 0, 19)
+TugOfWar.Font = Enum.Font.SourceSans
+TugOfWar.Text = "no killparts "
+TugOfWar.TextColor3 = Color3.fromRGB(0, 0, 0)
+TugOfWar.TextSize = 14.000
+TugOfWar.MouseButton1Down:connect(function()
+game:GetService("StarterGui"):SetCore("SendNotification",{     
+													Title = "Killparts",     
+													Text = "all killparts has been destroyed",
+													Duration = 2, })
+game.Workspace.Mechanics.Kill:Destroy()
+game.Workspace.Mechanics.Kill2:Destroy()
+end)
+
+Close.Name = "Close"
+Close.Parent = main
+Close.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(1, 0, -0.0045454547, 0)
+Close.Size = UDim2.new(0, 32, 0, 33)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "Back"
+Close.TextColor3 = Color3.fromRGB(0, 0, 0)
+Close.TextSize = 14.000
+Close.MouseButton1Down:connect(function()
+main.Visible = false
+loadstring(game:HttpGet("https://pastebin.com/raw/8Jz9gs7B",true))()
+end)
+page.Name = "page"
+page.Parent = main
+page.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+page.BorderSizePixel = 0
+page.Position = UDim2.new(1, 0, 0.8045454547, 0)
+page.Size = UDim2.new(0, 32, 0, 33)
+page.Font = Enum.Font.SourceSans
+page.Text = "Next"
+page.TextColor3 = Color3.fromRGB(0, 0, 0)
+page.TextSize = 14.000
+page.MouseButton1Down:connect(function()
+wait(1)
+main.Visible = false 
+loadstring(game:HttpGet("https://pastebin.com/raw/WN7DWTrh",true))()
+end)
